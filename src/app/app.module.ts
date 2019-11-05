@@ -7,13 +7,12 @@ import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   {path: 'user-center', component: UserComponent  },
   {path: 'product-center', component: ProductComponent},
-  {path: 'user/:id', component: UserComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'user/:id', component: UserComponent}
 ];
 
 @NgModule({
@@ -22,12 +21,16 @@ const appRoutes: Routes = [
     TodoComponent,
     UserComponent,
     ProductComponent
-    
   ],
   imports: [
+    RouterModule.forRoot(appRoutes, {
+      enableTracing: true
+    }),
     BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
