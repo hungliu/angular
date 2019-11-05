@@ -5,14 +5,24 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 import { RouterModule, Routes } from '@angular/router';
+import { SearchComponent } from './search/search.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+
+import { UserService } from './Services/UserService';
+import { HttpClientModule } from '@angular/common/http';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const appRoutes: Routes = [
-  {path: 'user-center', component: UserComponent  },
-  {path: 'product-center', component: ProductComponent},
-  {path: 'user/:id', component: UserComponent}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'search-route', component: SearchComponent},
+  {path: 'user-route', component: UserComponent  },
+  {path: 'product-route', component: ProductComponent},
+  {path: 'user/:id', component: UserDetailComponent}
 ];
 
 @NgModule({
@@ -20,15 +30,20 @@ const appRoutes: Routes = [
     AppComponent,
     TodoComponent,
     UserComponent,
-    ProductComponent
+    ProductComponent,
+    SearchComponent,
+    HeaderComponent,
+    HomeComponent,
+    UserDetailComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
       enableTracing: true
     }),
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ UserService],
   bootstrap: [AppComponent]
 })
 
