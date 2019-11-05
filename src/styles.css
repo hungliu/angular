@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+body {
+ padding-left: 20px;
+ padding-right: 20px;;
+}
+.customLink a {
+ color: rebeccapurple;
+ cursor: pointer;
+}
+
+.btnSecond {
+  margin-left:10px;
+}
