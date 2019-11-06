@@ -1,27 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
-
-
-import { RouterModule, Routes } from '@angular/router';
+import { AddUserComponent } from './add-user/add-user.component';
 import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 import { UserService } from './Services/UserService';
-import { HttpClientModule } from '@angular/common/http';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { RouteName } from "./Constant/RouteName";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'search-route', component: SearchComponent},
-  {path: 'user-route', component: UserComponent  },
-  {path: 'product-route', component: ProductComponent},
+  {path: RouteName.HOME, component: HomeComponent},
+  {path: RouteName.SEARCH, component: SearchComponent},
+  {path: RouteName.USER, component: UserComponent  },
+  {path: RouteName.PRODUCT, component: ProductComponent},
   {path: 'user/:id', component: UserDetailComponent}
 ];
 
@@ -34,14 +35,16 @@ const appRoutes: Routes = [
     SearchComponent,
     HeaderComponent,
     HomeComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    AddUserComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
       enableTracing: true
     }),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    //ReactiveFormsModule
   ],
   providers: [ UserService],
   bootstrap: [AppComponent]

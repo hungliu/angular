@@ -1,9 +1,9 @@
 {
     "workbench.colorCustomizations": {
-      // "activityBar.background": "#2b326e",:
+      //"activityBar.background": "#010736",
       //"editorGroup.border":"#ff0000",
         "tab.border":"#646060",
-        "tab.activeBorder":"#ff0000",
+        "tab.activeBorder":"#33da12",
         "editor.suggestSelection": "first",
         "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
@@ -11,14 +11,8 @@
         "explorer.decorations.badges": true,
 
         "gitDecoration.addedResourceForeground": "#17a313",
-       
-
-        "gitDecoration.modifiedResourceForeground":"#d9f363",
+        "gitDecoration.modifiedResourceForeground":"#d8e269",
         "gitDecoration.deletedResourceForeground":"#ff0000",
         "gitDecoration.untrackedResourceForeground":"#17a313",
-        //"gitDecoration.ignoredResourceForeground":"#ff0000",
-        //"gitDecoration.conflictingResourceForeground":"#ff0000",
-        //"gitDecoration.submoduleResourceForeground":"#ff0000",
-
     }
   }
