@@ -1,3 +1,21 @@
 https://angular.io/guide/router
 
 
+
+
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    "explorer.decorations.colors": false,
+    "explorer.decorations.badges": false,
+
+    "gitDecoration.modifiedResourceForeground":"",
+    "gitDecoration.deletedResourceForeground":"",
+    "gitDecoration.untrackedResourceForeground":"",
+    "gitDecoration.ignoredResourceForeground":"",
+    "gitDecoration.conflictingResourceForeground":"",
+    "gitDecoration.submoduleResourceForeground":"",
+
+   // "git.explorer.untrackedForeground":""
+}
