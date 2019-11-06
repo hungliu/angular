@@ -1,26 +1,47 @@
-<div *ngIf="loading else loadDone">
-    loading ...
+<div *ngIf="!hideButton">
+    <button type="button"
+    class="btn btn-primary"
+    (click)="onAddNew()">
+        Add New
+    </button>
+    <button type="button"
+        class="btn btn-primary  btnSecond"
+        (click)="onReload()">
+        Reload
+    </button>
 </div>
-<ng-template #loadDone>
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Avatar</th>
-                <th scope="col">createdAt</th>
-                <th scope="col">Detail</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor='let user of userList; let i = index'>
-                <td>{{user.id}}</td>
-                <td>{{user.name}}</td>
-                <td><img src="{{user.avatar}}" style="width: 20px; height: 20px;"/></td>
-                <td>{{user.createdAt | date: 'dd/MM/yyyy'}}</td>
-                <td><a [routerLink]="['/user/',user.id]" routerLinkActive="router-link-active"   >Edit</a></td>
-            </tr>
-        </tbody>
-    </table>
-</ng-template>
+
+<div *ngIf="!showList">
+    <add-user></add-user>
+</div>
+
+<div *ngIf="showList">
+    <div *ngIf="loading else loadDone" style="margin-bottom: 20px;">
+        loading ...
+    </div>
+
+    <ng-template #loadDone>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">createdAt</th>
+                    <th scope="col">Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let user of userList; let i = index'>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td><img src="{{user.avatar}}" style="width: 20px; height: 20px;"/></td>
+                    <td>{{user.createdAt | date: 'dd/MM/yyyy'}}</td>
+                    <td><a [routerLink]="['/user/',user.id]" routerLinkActive="router-link-active"   >Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>
+
 
