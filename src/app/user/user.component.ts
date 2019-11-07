@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable, Input } from '@angular/core';
 // import { ApiUrl } from '../Constant/ApiUrl';
 import { UserService } from '../Services/UserService';
 import {IUser} from '../Interface/IUser';
+import { Paging } from '../Constant/Paging';
 
 @Component({
   selector: 'app-user',
@@ -11,39 +12,47 @@ import {IUser} from '../Interface/IUser';
 
 @Injectable()
 export class UserComponent implements OnInit {
-  @Input() hideButton:number;
-  
+  @Input() hideButton: number;
   constructor(private userService: UserService) {
   }
 
+  pageIndex: number = Paging.PageIndex ;
+  pageSize: number = Paging.PageSize;
+  pageTotal: number;
 
   userList: IUser[];
-  
   loading = true;
   showList = true;
-  
-  onAddNew(){
+
+  onAddNew() {
     this.loading = false;
-     this.showList= false ;
+    this.showList = false;
   }
 
-  onReload(){
-    this.showList= true;
-    this.loading= true ;
-    this.loadData();
-    
+  onReload() {
+    this.showList = true;
+    this.loading = true ;
+    this.pageIndex = 1;
+    this.pageSize = Paging.PageSize;
+    this.loadData(this.pageIndex, this.pageSize);
   }
-  
-  loadData(){
-    this.userService.getUserList()
+
+  Navigate($event) {
+    this.loadData($event, this.pageSize);
+  }
+
+  loadData(pageIndex: number, pageSize: number) {
+    this.userService.getUserList(pageIndex, pageSize)
     .subscribe( data => {
+     //  console.log(data);
        this.userList = data;
+       this.pageTotal = 100;
        this.loading = false;
     });
   }
 
   ngOnInit() {
-    this.loadData();
+    this.loadData(this.pageIndex, this.pageSize);
   }
 }
 

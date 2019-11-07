@@ -4,217 +4,284 @@
       "name": "zzzzzzzzzzzzzzzz",
       "createdAt": "2019-11-02T02:07:13.591Z",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/Shriiiiimp/128.jpg",
-      "id": "1"
+      "id": "1",
+      "sex": "male",
+      "tel": "09093746252",
+      "Products": [
+        {
+          "id": "1",
+          "productname": "p 1",
+          "categoryid": "1"
+        },
+        {
+          "id": "10",
+          "productname": "p 10",
+          "categoryid": "1"
+        },
+        {
+          "id": "14",
+          "productname": "p 14",
+          "categoryid": "1"
+        }
+      ],
+      "Orders": [
+        {
+          "orderid": "1",
+          "orderdate": "2019-11-02T02:07:13.591Z",
+          "amount": 2000
+        }
+      ]
     },
     {
       "id": "2",
       "createdAt": "2019-11-02T02:07:13.591Z",
       "name": "Dagmar Kuhic",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/Shriiiiimp/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/Shriiiiimp/128.jpg",
+      "sex": "male",
+      "tel": "3213213111111111"
     },
     {
       "id": "3",
       "createdAt": "2019-11-02T02:50:21.114Z",
       "name": "Gail Feil",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/128.jpg",
+      "sex": "male",
+      "tel": "3311232131"
     },
     {
       "id": "4",
       "createdAt": "2019-11-02T00:02:58.936Z",
       "name": "Katlyn Becker",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/desastrozo/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/desastrozo/128.jpg",
+      "sex": "male",
+      "tel": "5435435435"
     },
     {
       "id": "5",
       "createdAt": "2019-11-02T05:20:21.127Z",
       "name": "King Thompson I",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/kylefoundry/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/kylefoundry/128.jpg",
+      "sex": "male",
+      "tel": "544345354"
     },
     {
       "id": "6",
       "createdAt": "2019-11-01T20:40:45.161Z",
       "name": "Morgan Reichel",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/perretmagali/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/perretmagali/128.jpg",
+      "sex": "male",
+      "tel": "432432432432"
     },
     {
       "id": "7",
       "createdAt": "2019-11-02T06:29:59.567Z",
       "name": "Tabitha Bogan",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/frankiefreesbie/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/frankiefreesbie/128.jpg",
+      "sex": "male",
+      "tel": "333333333"
     },
     {
       "id": "8",
       "createdAt": "2019-11-01T20:51:52.893Z",
       "name": "Madelynn Hane",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josep_martins/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josep_martins/128.jpg",
+      "sex": "male"
     },
     {
       "id": "9",
       "createdAt": "2019-11-02T03:55:24.520Z",
       "name": "Emmalee Gibson Sr.",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/amandabuzard/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/amandabuzard/128.jpg",
+      "sex": "male"
     },
     {
       "id": "10",
       "createdAt": "2019-11-01T09:31:32.346Z",
       "name": "Carlee Wolf",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/randomlies/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/randomlies/128.jpg",
+      "sex": "male"
     },
     {
       "id": "11",
       "createdAt": "2019-11-01T20:03:39.004Z",
       "name": "Leland Runolfsdottir",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/charliecwaite/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/charliecwaite/128.jpg",
+      "sex": "male"
     },
     {
       "id": "12",
       "createdAt": "2019-11-01T08:57:53.582Z",
       "name": "Abraham Lindgren",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/joelcipriano/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/joelcipriano/128.jpg",
+      "sex": "male"
     },
     {
       "id": "13",
       "createdAt": "2019-11-01T11:39:35.216Z",
       "name": "Pamela Kulas",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/tomas_janousek/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/tomas_janousek/128.jpg",
+      "sex": "male"
     },
     {
       "id": "14",
       "createdAt": "2019-11-02T04:16:54.071Z",
       "name": "Blair Ward V",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/emmandenn/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/emmandenn/128.jpg",
+      "sex": "male"
     },
     {
       "id": "15",
       "createdAt": "2019-11-02T01:03:53.955Z",
       "name": "Bradley Mante",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/stefanozoffoli/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/stefanozoffoli/128.jpg",
+      "sex": "male"
     },
     {
       "id": "16",
       "createdAt": "2019-11-02T06:27:13.222Z",
       "name": "Bethany Torphy",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/keryilmaz/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/keryilmaz/128.jpg",
+      "sex": "male"
     },
     {
       "id": "17",
       "createdAt": "2019-11-01T20:53:29.391Z",
       "name": "Shanon Christiansen Jr.",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/wake_gs/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/wake_gs/128.jpg",
+      "sex": "male"
     },
     {
       "id": "18",
       "createdAt": "2019-11-02T03:39:56.782Z",
       "name": "Agustin Reichel I",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/katiemdaly/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/katiemdaly/128.jpg",
+      "sex": "male"
     },
     {
       "id": "19",
       "createdAt": "2019-11-02T07:13:49.249Z",
       "name": "Vivianne Cartwright",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mastermindesign/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mastermindesign/128.jpg",
+      "sex": "male"
     },
     {
       "id": "20",
       "createdAt": "2019-11-01T14:58:19.867Z",
       "name": "Greyson Price",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/diesellaws/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/diesellaws/128.jpg",
+      "sex": "male"
     },
     {
       "id": "21",
       "createdAt": "2019-11-01T19:42:00.530Z",
       "name": "Delpha MacGyver",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/oskarlevinson/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/oskarlevinson/128.jpg",
+      "sex": "male"
     },
     {
       "id": "22",
       "createdAt": "2019-11-01T23:01:30.637Z",
       "name": "Jose Hahn",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/sethlouey/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/sethlouey/128.jpg",
+      "sex": "male"
     },
     {
       "id": "23",
       "createdAt": "2019-11-02T04:09:03.010Z",
       "name": "Keshaun Lehner",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/dshster/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/dshster/128.jpg",
+      "sex": "male"
     },
     {
       "id": "24",
       "createdAt": "2019-11-01T22:26:43.068Z",
       "name": "Dolly West",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/layerssss/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/layerssss/128.jpg",
+      "sex": "male"
     },
     {
       "id": "25",
       "createdAt": "2019-11-01T12:01:46.430Z",
       "name": "Rebeca Bartell",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/andresenfredrik/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/andresenfredrik/128.jpg",
+      "sex": "male"
     },
     {
       "id": "26",
       "createdAt": "2019-11-01T16:41:30.427Z",
       "name": "Elouise Collins Jr.",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/baluli/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/baluli/128.jpg",
+      "sex": "male"
     },
     {
       "id": "27",
       "createdAt": "2019-11-01T15:20:17.689Z",
       "name": "Roel Dietrich",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jimmuirhead/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jimmuirhead/128.jpg",
+      "sex": "male"
     },
     {
       "id": "28",
       "createdAt": "2019-11-02T03:03:17.142Z",
       "name": "Yasmeen MacGyver",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/akmur/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/akmur/128.jpg",
+      "sex": "male"
     },
     {
       "id": "29",
       "createdAt": "2019-11-02T03:23:36.864Z",
       "name": "Reid Schaefer",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/horaciobella/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/horaciobella/128.jpg",
+      "sex": "male"
     },
     {
       "id": "30",
       "createdAt": "2019-11-02T04:25:15.275Z",
       "name": "Lilliana O'Keefe",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg",
+      "sex": "male"
     },
     {
       "id": "31",
       "createdAt": "2019-11-02T05:55:20.962Z",
       "name": "Shanny Boyer",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/a1chapone/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/a1chapone/128.jpg",
+      "sex": "male"
     },
     {
       "id": "32",
       "createdAt": "2019-11-01T18:26:09.302Z",
       "name": "Marcos McGlynn",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ralph_lam/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ralph_lam/128.jpg",
+      "sex": "male"
     },
     {
       "id": "33",
       "createdAt": "2019-11-01T12:18:07.438Z",
       "name": "Alexzander Stanton",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/theonlyzeke/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/theonlyzeke/128.jpg",
+      "sex": "male"
     },
     {
       "id": "34",
       "createdAt": "2019-11-02T00:45:18.300Z",
       "name": "Josianne Hettinger",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jarsen/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jarsen/128.jpg",
+      "sex": "male"
     },
     {
       "id": "35",
       "createdAt": "2019-11-01T15:24:18.212Z",
       "name": "Ashlynn Nicolas IV",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/otozk/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/otozk/128.jpg",
+      "sex": "male"
     },
     {
       "id": "36",
       "createdAt": "2019-11-02T01:13:19.931Z",
       "name": "Mathew Simonis",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/Karimmove/128.jpg"
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/Karimmove/128.jpg",
+      "sex": "male"
     },
     {
       "id": "37",
@@ -499,106 +566,14 @@
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/coderdiaz/128.jpg"
     },
     {
-      "id": "84",
-      "createdAt": "2019-11-05T02:50:22.566Z",
-      "name": "Janice Breitenberg",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ninjad3m0/128.jpg"
-    },
-    {
-      "id": "85",
-      "createdAt": "2019-11-04T19:43:06.347Z",
-      "name": "Otilia Shields",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/imomenui/128.jpg"
-    },
-    {
-      "id": "86",
-      "createdAt": "2019-11-05T03:27:42.974Z",
-      "name": "Mrs. Minnie Grant",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/tgerken/128.jpg"
-    },
-    {
-      "id": "87",
-      "createdAt": "2019-11-05T08:50:17.682Z",
-      "name": "Mr. Mercedes Robel",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/scott_riley/128.jpg"
-    },
-    {
-      "id": "88",
-      "createdAt": "2019-11-05T09:36:39.337Z",
-      "name": "Anne Rau",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/bublienko/128.jpg"
-    },
-    {
-      "id": "89",
-      "createdAt": "2019-11-04T16:38:22.180Z",
-      "name": "Jaqueline Aufderhar",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/luxe/128.jpg"
-    },
-    {
-      "id": "90",
-      "createdAt": "2019-11-04T21:10:29.646Z",
-      "name": "Miss Alvis Carter",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/abdulhyeuk/128.jpg"
-    },
-    {
-      "id": "91",
-      "createdAt": "2019-11-04T22:43:27.342Z",
-      "name": "Telly Altenwerth",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/belyaev_rs/128.jpg"
-    },
-    {
-      "id": "92",
-      "createdAt": "2019-11-04T22:14:57.928Z",
-      "name": "Novella Harvey DVM",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/sebashton/128.jpg"
-    },
-    {
-      "id": "93",
-      "createdAt": "2019-11-04T16:37:23.060Z",
-      "name": "Davonte Vandervort",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jakemoore/128.jpg"
-    },
-    {
-      "id": "94",
-      "createdAt": "2019-11-05T05:24:34.981Z",
-      "name": "Caleigh Hauck",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/n3dmax/128.jpg"
-    },
-    {
-      "id": "95",
-      "createdAt": "2019-11-05T06:23:06.443Z",
-      "name": "Sydney Blanda",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/atanism/128.jpg"
-    },
-    {
-      "id": "96",
-      "createdAt": "2019-11-04T20:16:19.881Z",
-      "name": "Concepcion Bartell",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/arpitnj/128.jpg"
-    },
-    {
-      "id": "97",
-      "createdAt": "2019-11-05T04:39:10.619Z",
-      "name": "Myles Botsford",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/weglov/128.jpg"
-    },
-    {
-      "id": "98",
-      "createdAt": "2019-11-04T18:37:16.377Z",
-      "name": "Xavier Lueilwitz",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/saarabpreet/128.jpg"
-    },
-    {
-      "id": "99",
-      "createdAt": "2019-11-05T08:23:45.439Z",
-      "name": "Alba Hartmann DDS",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/grahamkennery/128.jpg"
-    },
-    {
-      "id": "100",
-      "createdAt": "2019-11-04T11:18:45.728Z",
-      "name": "Creola Schuster",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/michaelbrooksjr/128.jpg"
+      "id": 270,
+      "sex": "Male",
+      "name": "test test test ",
+      "tel": "0909",
+      "email": "hung@sda.com",
+      "avatar": "bgvc",
+      "createdAt": "2019-11-07T10:06:18.673Z",
+      "hobbies": []
     }
   ],
   "Category": [
