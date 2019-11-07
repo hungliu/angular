@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     }),
     BrowserModule,
     HttpClientModule,
-    //ReactiveFormsModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [ UserService],
   bootstrap: [AppComponent]

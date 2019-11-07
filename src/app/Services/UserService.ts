@@ -12,14 +12,15 @@ import { delay } from 'rxjs/operators';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getUserList(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(ApiUrl.getUserData);
+  getUserList(pageIndex: number, pageSize: number): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${ApiUrl.getUserData}?_limit=${pageSize}&_page=${pageIndex}&_sort=createdAt&_order=desc`);
   }
-  
+
   getUserById(id: number): Observable<IUser> {
     return this.http.get<IUser>(ApiUrl.getUserData);
   }
-  // errorHandler(error: HttpErrorResponse) {
-  //     return Observable.throw( error.message || 'Error');
-  // }
+
+  addUser(user: any): Observable<IUser> {
+    return this.http.post<IUser>(ApiUrl.getUserData, user);
+  }
 }

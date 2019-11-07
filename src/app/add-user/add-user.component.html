@@ -1,66 +1,67 @@
 <div class="divform">
     <!-- <h4>Add User</h4> -->
-    <form novalidate (ngSubmit)="onSubmit()"
-  class="row justify-content-md-center">
-  <div class="col-md-8">
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">
-        Name:
-      </label>
-      <div class="col-10">
-        <input class="form-control" type="text"
-          id="example-text-input">
-      </div>
+  <form [formGroup]="myform" novalidate (ngSubmit)="onSubmit()" class="row justify-content-md-center">
+    <div class="form-group"  [ngClass]="{
+        'has-error': name.invalid && name.dirty,
+        'has-success': name.valid && name.dirty
+      }">
+        <label>Name:</label>
+        <input class="form-control" type="text" placeholder="pls input" formControlName="name" required>
+        <span  class="form-control-feedback"
+            *ngIf="name.errors && (name.dirty || name.touched)">
+            <p *ngIf="name.errors.required">Name is required</p>
+            <p *ngIf="name.errors.minlength">Name must be > 8 characters.</p>
+        </span>
     </div>
-    <div class="form-group row">
-      <label for="example-email-input" class="col-2 col-form-label">
-        Email:
-      </label>
-      <div class="col-10">
-        <input class="form-control" type="email"
-          id="example-email-input">
-      </div>
+
+    <div class="form-group" [ngClass]="borderControlValid(this.email)">
+      <label>Email:</label>
+        <input class="form-control" type="email" placeholder="pls input" formControlName="email">
+        <span  class="form-control-feedback"
+        *ngIf="email.errors && (email.dirty || email.touched)">
+        <p *ngIf="email.errors.required">Email is required</p>
+        <p *ngIf="email.errors.pattern">The email address must contain at least the @ character</p>
+    </span>
     </div>
-    <div class="form-group row">
-      <label for="example-url-fb" class="col-2 col-form-label">
-        Facebook:
-      </label>
-      <div class="col-10">
-        <input class="form-control" type="url" id="example-url-fb">
-      </div>
+
+    <div class="form-group" [ngClass]="borderControlValid(this.tel)">
+      <label>  Tel: </label>
+      <input class="form-control" type="tel"   placeholder="pls input" formControlName="tel">
+      <span  class="form-control-feedback"
+          *ngIf="tel.errors && (tel.dirty || tel.touched)">
+          <p *ngIf="tel.errors.required">tel is required</p>
+      </span>
     </div>
-    <div class="form-group row">
-      <label for="example-url-twt" class="col-2 col-form-label">
-        Twitter:
+
+    <div class="form-group">
+      <label >
+        Sex:
       </label>
-      <div class="col-10">
-        <input class="form-control" type="url" id="example-url-twt">
-      </div>
+        <select class="form-control" formControlName="sex" [ngClass]="borderControlValid(this.sex)">
+          <option value="">Please select</option>
+          <option *ngFor="let sex of SexArr"
+                  [value]="sex">
+                  {{sex}}
+          </option>
+        </select>
     </div>
-    <div class="form-group row">
-      <label for="example-url-web" class="col-2 col-form-label">
-        Website:
-      </label>
-      <div class="col-10">
-        <input class="form-control" type="url" id="example-url-web">
-      </div>
+
+    <div class="form-group" [ngClass]="borderControlValid(this.avatar)">
+      <label>   Avatar:  </label>
+      <input class="form-control" type="url" formControlName="avatar" placeholder="pls input">
+      <span  class="form-control-feedback"
+        *ngIf="avatar.errors && (avatar.dirty || avatar.touched)">
+        <p *ngIf="avatar.errors.required">avatar is required</p>
+    </span>
     </div>
-    <div class="form-group row">
-      <label for="example-tel-input" class="col-2 col-form-label">
-        Tel:
-      </label>
-      <div class="col-10">
-        <input class="form-control" type="tel" 
-          id="example-tel-input">
-      </div>
-    </div>
-    <div class="form-group row">
+   
+    <div class="form-group">
       <div class="col-10 offset-2">
         <button class="btn btn-primary"
           type="submit">Submit</button>
       </div>
     </div>
-  </div>
+  
 </form>
-
+<pre>{{myform.value | json}}</pre>
 </div>

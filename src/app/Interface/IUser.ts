@@ -3,4 +3,6 @@ export interface IUser {
     createdAt: Date;
     name: string;
     avatar: string;
+    sex: string;
+    tel: string;
 }

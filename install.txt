@@ -1,0 +1,14 @@
+1) Install Json server:
+- npm install -g json-server
+- Create a db.json file with some data
+    navigate Database Folder: run json-server --watch db.json
+
+(following: https://www.npmjs.com/package/json-server)
+
+2) Install bootstap:
+- npm install --save @ng-bootstrap/ng-bootstrap
+
+3) install loader:
+https://stackoverflow.com/questions/52356324/display-spinner-till-api-response-in-angular-6/52356687
+
+https://www.tiepphan.com/thu-nghiem-voi-angular-reactive-forms-trong-angular/

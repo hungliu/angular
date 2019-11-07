@@ -3,3 +3,9 @@
     padding-left: 18px;
     padding-right: 10px;
 }
+
+.form-control-feedback {
+    position: relative;
+    width: auto;
+    text-align: left;
+}
