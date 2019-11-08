@@ -1,7 +1,7 @@
 1) Install Json server:
 - npm install -g json-server
 - Create a db.json file with some data
-    navigate Database Folder: run json-server --watch db.json
+    navigate Database Folder, run cmd : json-server --watch database.json
 
 (following: https://www.npmjs.com/package/json-server)
 
@@ -12,3 +12,5 @@
 https://stackoverflow.com/questions/52356324/display-spinner-till-api-response-in-angular-6/52356687
 
 https://www.tiepphan.com/thu-nghiem-voi-angular-reactive-forms-trong-angular/
+
+https://www.youtube.com/watch?v=aHD7PLXKTsQ

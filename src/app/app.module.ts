@@ -3,28 +3,32 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
-import { TodoComponent } from './todo/todo.component';
-import { UserComponent } from './user/user.component';
-import { ProductComponent } from './product/product.component';
-import { AddUserComponent } from './add-user/add-user.component';
-import { SearchComponent } from './search/search.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { TodoComponent } from './Component/todo/todo.component';
+import { UserComponent } from './Component/user/user.component';
+import { ProductComponent } from './Component/product/product.component';
+import { AddUserComponent } from './Component/add-user/add-user.component';
+import { SearchComponent } from './Component/search/search.component';
+import { HeaderComponent } from './Component/header/header.component';
+import { HomeComponent } from './Component/home/home.component';
+import { UserDetailComponent } from './Component/user-detail/user-detail.component';
 
 import { UserService } from './Services/UserService';
 import { RouteName } from "./Constant/RouteName";
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: RouteName.HOME, component: HomeComponent},
-  {path: RouteName.SEARCH, component: SearchComponent},
-  {path: RouteName.USER, component: UserComponent  },
-  {path: RouteName.PRODUCT, component: ProductComponent},
-  {path: 'user/:id', component: UserDetailComponent}
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: RouteName.HOME, component: HomeComponent },
+  { path: RouteName.SEARCH, component: SearchComponent },
+  { path: RouteName.USER, component: UserComponent },
+  { path: RouteName.PRODUCT, component: ProductComponent },
+  { path: 'user/:id', component: UserDetailComponent }
 ];
 
 @NgModule({
@@ -44,11 +48,14 @@ const appRoutes: Routes = [
       enableTracing: true
     }),
     BrowserModule,
-    HttpClientModule,
+    BrowserAnimationsModule,
+    // MatProgressSpinnerModule,
+    NgxSpinnerModule,
     NgbModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ UserService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 

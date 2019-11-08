@@ -1,0 +1,65 @@
+<div class="divform">
+  <!-- <h4>Add User</h4> -->
+  <form [formGroup]="myform" novalidate (ngSubmit)="onSubmit()" class="row justify-content-md-center">
+    <div class="form-group" [ngClass]="{
+        'has-error':  (name.invalid && name.dirty) || (submitted && name.invalid),
+        'has-success': name.valid && name.dirty
+      }">
+      <label>Name:</label>
+      <input class="form-control" type="text" placeholder="pls input" formControlName="name" required>
+      <span class="form-control-feedback"
+        *ngIf="(name.errors && (name.dirty || name.touched)) || (submitted && name.errors)">
+        <p *ngIf="name.errors.required">Name is required</p>
+        <p *ngIf="name.errors.minlength">Name must be > 8 characters.</p>
+      </span>
+    </div>
+
+    <div class="form-group" [ngClass]="borderControlValid(this.email)">
+      <label>Email:</label>
+      <input class="form-control" type="email" placeholder="pls input" formControlName="email">
+      <span class="form-control-feedback"
+        *ngIf="(email.errors && (email.dirty || email.touched))  || (submitted && email.errors)">
+        <p *ngIf="email.errors.required">Email is required</p>
+        <p *ngIf="email.errors.pattern">The email address must contain at least the @ character</p>
+      </span>
+    </div>
+
+    <div class="form-group" [ngClass]="borderControlValid(this.tel)">
+      <label> Tel: </label>
+      <input class="form-control" type="tel" placeholder="pls input" formControlName="tel">
+      <span class="form-control-feedback"
+        *ngIf="(tel.errors && (tel.dirty || tel.touched)) ||  (submitted && tel.errors)">
+        <p *ngIf="tel.errors.required">tel is required</p>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>
+        Sex:
+      </label>
+      <select class="form-control" formControlName="sex" [ngClass]="borderControlValid(this.sex)">
+        <option value="">Please select</option>
+        <option *ngFor="let sex of SexArr" [value]="sex">
+          {{sex}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" [ngClass]="borderControlValid(this.avatar)">
+      <label> Avatar: </label>
+      <input class="form-control" type="url" formControlName="avatar" placeholder="pls input">
+      <span class="form-control-feedback"
+        *ngIf="(avatar.errors && (avatar.dirty || avatar.touched))||(submitted && avatar.errors)">
+        <p *ngIf="avatar.errors.required">avatar is required</p>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="col-10 offset-2">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </div>
+
+  </form>
+  <pre>{{myform.value | json}}</pre>
+</div>
