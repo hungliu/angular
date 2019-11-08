@@ -1,8 +1,9 @@
 import { Component, OnInit, Injectable, Input } from '@angular/core';
 // import { ApiUrl } from '../Constant/ApiUrl';
-import { UserService } from '../Services/UserService';
-import {IUser} from '../Interface/IUser';
-import { Paging } from '../Constant/Paging';
+import { UserService } from '../../Services/UserService';
+import { IUser } from '../../Interface/IUser';
+import { Paging } from '../../Constant/Paging';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-user',
@@ -13,10 +14,11 @@ import { Paging } from '../Constant/Paging';
 @Injectable()
 export class UserComponent implements OnInit {
   @Input() hideButton: number;
-  constructor(private userService: UserService) {
+
+  constructor(private userService: UserService, private spinner: NgxSpinnerService) {
   }
 
-  pageIndex: number = Paging.PageIndex ;
+  pageIndex: number = Paging.PageIndex;
   pageSize: number = Paging.PageSize;
   pageTotal: number;
 
@@ -31,7 +33,7 @@ export class UserComponent implements OnInit {
 
   onReload() {
     this.showList = true;
-    this.loading = true ;
+    this.loading = true;
     this.pageIndex = 1;
     this.pageSize = Paging.PageSize;
     this.loadData(this.pageIndex, this.pageSize);
@@ -42,13 +44,28 @@ export class UserComponent implements OnInit {
   }
 
   loadData(pageIndex: number, pageSize: number) {
+    this.spinner.show();
     this.userService.getUserList(pageIndex, pageSize)
-    .subscribe( data => {
-     //  console.log(data);
-       this.userList = data;
-       this.pageTotal = 100;
-       this.loading = false;
-    });
+      .subscribe(
+        data => {
+          //  console.log(data);
+          this.userList = data;
+          this.pageTotal = 100;
+          this.loading = false;
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
+        }, err => {
+          window.alert('not connect server-jon');
+        });
+  }
+
+  userAdded;
+  getEventFromAddUser($event) {
+    if ($event.success == 1) {
+      this.userAdded = $event.item;
+      this.onReload();
+    }
   }
 
   ngOnInit() {

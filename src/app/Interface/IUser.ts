@@ -1,3 +1,4 @@
+
 export interface IUser {
     id: number;
     createdAt: Date;
@@ -5,4 +6,11 @@ export interface IUser {
     avatar: string;
     sex: string;
     tel: string;
+    status: Status;
+}
+
+enum Status {
+    Pending = 1,
+    Aprroved = 2,
+    Deleted = 3
 }
