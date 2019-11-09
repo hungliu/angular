@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { RouteName } from '../../Constant/RouteName';
+import { Component, OnInit } from "@angular/core";
+import { RouteName } from "../../Constant/RouteName";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: []
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   routes = {
     home: RouteName.HOME,
@@ -17,8 +16,5 @@ export class HeaderComponent implements OnInit {
     product: RouteName.PRODUCT
   };
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }

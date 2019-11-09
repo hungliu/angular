@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './Component/todo/todo.component';
@@ -18,9 +17,9 @@ import { HomeComponent } from './Component/home/home.component';
 import { UserDetailComponent } from './Component/user-detail/user-detail.component';
 
 import { UserService } from './Services/UserService';
-import { RouteName } from "./Constant/RouteName";
+import { RouteName } from './Constant/RouteName';
 
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,7 +48,6 @@ const appRoutes: Routes = [
     }),
     BrowserModule,
     BrowserAnimationsModule,
-    // MatProgressSpinnerModule,
     NgxSpinnerModule,
     NgbModule,
     HttpClientModule,

@@ -14,5 +14,6 @@
         "gitDecoration.modifiedResourceForeground":"#d8e269",
         "gitDecoration.deletedResourceForeground":"#ff0000",
         "gitDecoration.untrackedResourceForeground":"#17a313",
-    }
+    },
+    "editor.formatOnSave": true
   }
