@@ -1,4 +1,10 @@
-import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Injectable,
+  Output,
+  EventEmitter
+} from "@angular/core";
 
 import {
   ReactiveFormsModule,
@@ -7,45 +13,57 @@ import {
   Validators,
   FormBuilder,
   FormArray
-} from '@angular/forms';
+} from "@angular/forms";
 
-
-import { IUser } from '../../Interface/IUser';
-import { UserService } from '../../Services/UserService';
-import { Common } from '../../Constant/Common';
-import { Router } from '@angular/router';
+import { IUser } from "../../Interface/IUser";
+import { UserService } from "../../Services/UserService";
+import { Common } from "../../Constant/Common";
+import { Router } from "@angular/router";
+import { NgbSlide } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  selector: "app-add-user",
+  templateUrl: "./add-user.component.html",
+  styleUrls: []
 })
-
 @Injectable()
 export class AddUserComponent implements OnInit {
-  // declare
+  // send event to UserCpn
+  @Output() addUserFinishEvent = new EventEmitter<object>();
+  // check submit form
+  submitted: Boolean = false;
+  //data bind to select box
+  SexArr: string[] = ["Male", "Female", "Other"];
+  // declare controls
   myform: FormGroup;
   name: FormControl;
   tel: FormControl;
   sex: FormControl;
   avatar: FormControl;
   email: FormControl;
-  hobbies: FormArray;
+  AddressList: FormArray;
+
+  constructor(
+    private userService: UserService,
+    private route: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
     // init control
-    this.name = new FormControl('', [
+
+    this.name = new FormControl("", [
       Validators.required,
       Validators.minLength(8)
     ]);
-    this.tel = new FormControl('', Validators.required);
-    this.sex = new FormControl('', Validators.required);
-    this.avatar = new FormControl('', Validators.required);
-    this.email = new FormControl('', [
+    this.tel = new FormControl("", Validators.required);
+    this.sex = new FormControl("", Validators.required);
+    this.avatar = new FormControl("", Validators.required);
+    this.email = new FormControl("", [
       Validators.required,
-      Validators.pattern('[^ @]*@[^ @]*')
+      Validators.pattern("[^ @]*@[^ @]*")
     ]);
-    this.hobbies = new FormArray([new FormControl('')]);
+    this.AddressList = this.formBuilder.array([this.initAddressGroup()]);
 
     // init form and add controls to form
     this.myform = this.formBuilder.group({
@@ -54,38 +72,39 @@ export class AddUserComponent implements OnInit {
       sex: this.sex,
       avatar: this.avatar,
       email: this.email,
-      hobbies: this.hobbies
-      // hobbies: this.formBuilder.array([this.formBuilder.control('') ])
-      // hobbies: this.formBuilder.array([
-      //   { name: 'nhau', time: 1 },
-      //   { name: 'boiloi', time: 2 },
-      //   { name: 'dabanh', time: 13 },
-      // ])
+      AddressList: this.AddressList
     });
-
   }
 
-  // get hobbies(): FormArray {
-  //   return this.myform.get('hobbies') as FormArray;
+  initAddressGroup() {
+    return this.formBuilder.group({
+      Address: new FormControl(""),
+      City: new FormControl(""),
+      Country: new FormControl("")
+    });
+  }
+
+  // get AddressList() {
+  //   return this.myform.get("address") as FormArray;
   // }
 
-  addHobbies() {
-    this.hobbies.push(this.formBuilder.control('xxxxxxxx'));
+  addMoreAddress() {
+    this.AddressList.push(this.initAddressGroup());
+    //let f = this.myform.get("address") as FormArray;
+    //f.push(this.initAddressGroup());
   }
 
-  removeHobbies(index: number) {
-    this.hobbies.removeAt(index);
+  removeAddress(index: number) {
+    if (this.AddressList.length == 1) {
+      window.alert("least one");
+      return;
+    }
+    console.log("remove at: " + index);
+    this.AddressList.removeAt(index);
+    //(this.myform.get("address") as FormArray).removeAt(index);
   }
 
-  // ban message qua cho component cha khi add user thanh cong...
-  // tslint:disable-next-line: member-ordering
-  @Output() addUserFinishEvent = new EventEmitter<object>();
-
-  constructor(private userService: UserService, private route: Router, private formBuilder: FormBuilder) { }
-
-  SexArr: string[] = ['Male', 'Female', 'Other'];
-
-  submitted = false;
+  //submit form function
   onSubmit() {
     this.submitted = true;
     if (this.myform.valid) {
@@ -97,30 +116,35 @@ export class AddUserComponent implements OnInit {
         email: this.email.value,
         avatar: this.avatar.value,
         createdAt: new Date(),
-        hobbies: (this.myform.get('hobbies') as FormArray).value
+        AddressList: this.AddressList.value //(this.myform.get("AddressList") as FormArray).value
       };
 
-      this.userService.addUser(user).subscribe(
-        data => {
-          this.myform.reset();
-          this.addUserFinishEvent.emit({
-            success: 1,
-            item: user
-          });
+      this.userService.addUser(user).subscribe(data => {
+        this.myform.reset();
+        this.addUserFinishEvent.emit({
+          success: 1,
+          item: user
         });
+      });
     } else {
-      console.log('invalidation');
+      console.log("invalidation");
     }
   }
-
+  // reset form function
+  onResetForm() {
+    this.myform.reset();
+  }
 
   borderControlValid(control: FormControl): string {
-    if ((control.invalid && control.dirty) || (this.submitted && control.invalid)) {
-      return 'has-error';
+    if (
+      (control.invalid && control.dirty) ||
+      (this.submitted && control.invalid)
+    ) {
+      return "has-error";
     } else if (control.valid && control.dirty) {
-      return 'has-success';
+      return "has-success";
     } else {
-      return '';
+      return "";
     }
   }
 }

@@ -1,23 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: []
 })
 export class SearchComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
+  seachTypes: any[] = [{ id: 1, label: "Product" }, { id: 2, label: "User" }];
 
-  seachTypes: any[] = [
-    {id:1, label: 'Product'},
-    {id:2, label: 'User'}
-  ];
-
-  onSearch(search: string , searchType: number) {
-
-  }
+  onSearch(search: string, searchType: number) {}
 }

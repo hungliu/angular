@@ -2,14 +2,57 @@
 
 
 body {
- padding-left: 20px;
- padding-right: 20px;;
+  padding-left: 20px;
+  padding-right: 20px;
+  ;
 }
+
 .customLink a {
- color: rebeccapurple;
- cursor: pointer;
+  color: rebeccapurple;
+  cursor: pointer;
 }
 
 .btnSecond {
-  margin-left:10px;
+  margin-left: 10px;
+}
+
+/* add user component*/
+.divform {
+  padding-top: 10px;
+  padding-left: 18px;
+  padding-right: 10px;
+}
+
+.form-control-feedback {
+  position: relative;
+  width: auto;
+  text-align: left;
+}
+
+.txtAlign {
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.divSectionAddress {
+  padding-bottom: 10px;
+}
+
+.addressItem {
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #eff0f1;
+  border-radius: 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.addressItem input[type=text] {
+  width: 150px;
+  /* padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box; */
 }

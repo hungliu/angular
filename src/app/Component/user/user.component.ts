@@ -1,22 +1,17 @@
-import { Component, OnInit, Injectable, Input } from '@angular/core';
-// import { ApiUrl } from '../Constant/ApiUrl';
-import { UserService } from '../../Services/UserService';
-import { IUser } from '../../Interface/IUser';
-import { Paging } from '../../Constant/Paging';
+import { Component, OnInit, Injectable, Input } from "@angular/core";
+import { UserService } from "../../Services/UserService";
+import { IUser } from "../../Interface/IUser";
+import { Paging } from "../../Constant/Paging";
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: []
 })
-
 @Injectable()
 export class UserComponent implements OnInit {
   @Input() hideButton: number;
-
-  constructor(private userService: UserService, private spinner: NgxSpinnerService) {
-  }
 
   pageIndex: number = Paging.PageIndex;
   pageSize: number = Paging.PageSize;
@@ -25,6 +20,15 @@ export class UserComponent implements OnInit {
   userList: IUser[];
   loading = true;
   showList = true;
+
+  constructor(
+    private userService: UserService,
+    private spinner: NgxSpinnerService
+  ) {}
+
+  ngOnInit() {
+    this.loadData(this.pageIndex, this.pageSize);
+  }
 
   onAddNew() {
     this.loading = false;
@@ -45,33 +49,27 @@ export class UserComponent implements OnInit {
 
   loadData(pageIndex: number, pageSize: number) {
     this.spinner.show();
-    this.userService.getUserList(pageIndex, pageSize)
-      .subscribe(
-        data => {
-          //  console.log(data);
-          this.userList = data;
-          this.pageTotal = 100;
-          this.loading = false;
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 500);
-        }, err => {
-          window.alert('not connect server-jon');
-        });
+    this.userService.getUserList(pageIndex, pageSize).subscribe(
+      data => {
+        //  console.log(data);
+        this.userList = data;
+        this.pageTotal = 100;
+        this.loading = false;
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 500);
+      },
+      err => {
+        window.alert("not connect server-jon");
+      }
+    );
   }
 
-  userAdded;
+  userAdded: number = 0;
   getEventFromAddUser($event) {
     if ($event.success == 1) {
       this.userAdded = $event.item;
       this.onReload();
     }
   }
-
-  ngOnInit() {
-    this.loadData(this.pageIndex, this.pageSize);
-  }
 }
-
-
-
