@@ -1,7 +1,7 @@
 1) Install Json server:
 - npm install -g json-server
 - Create a db.json file with some data
-    navigate Database Folder, run cmd : json-server --watch database.json
+    navigate Database Folder, run cmd : cd Database / json-server --watch database.json
 
 (following: https://www.npmjs.com/package/json-server)
 
@@ -14,3 +14,5 @@ https://stackoverflow.com/questions/52356324/display-spinner-till-api-response-i
 https://www.tiepphan.com/thu-nghiem-voi-angular-reactive-forms-trong-angular/
 
 https://www.youtube.com/watch?v=aHD7PLXKTsQ
+
+https://scotch.io/tutorials/3-ways-to-pass-async-data-to-angular-2-child-components

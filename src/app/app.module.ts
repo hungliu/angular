@@ -1,33 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { AppComponent } from './app.component';
-import { TodoComponent } from './Component/todo/todo.component';
-import { UserComponent } from './Component/user/user.component';
-import { ProductComponent } from './Component/product/product.component';
-import { AddUserComponent } from './Component/add-user/add-user.component';
-import { SearchComponent } from './Component/search/search.component';
-import { HeaderComponent } from './Component/header/header.component';
-import { HomeComponent } from './Component/home/home.component';
-import { UserDetailComponent } from './Component/user-detail/user-detail.component';
+import { AppComponent } from "./app.component";
+import { TodoComponent } from "./Component/todo/todo.component";
+import { UserComponent } from "./Component/user/user.component";
 
-import { UserService } from './Services/UserService';
-import { RouteName } from './Constant/RouteName';
+import { AddUserComponent } from "./Component/add-user/add-user.component";
+import { SearchComponent } from "./Component/search/search.component";
+import { HeaderComponent } from "./Component/header/header.component";
+import { HomeComponent } from "./Component/home/home.component";
+import { UserDetailComponent } from "./Component/user-detail/user-detail.component";
 
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { UserService } from "./Services/UserService";
+import { RouteName } from "./Constant/RouteName";
+
+import { NgxSpinnerModule } from "ngx-spinner";
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: RouteName.HOME, component: HomeComponent },
   { path: RouteName.SEARCH, component: SearchComponent },
   { path: RouteName.USER, component: UserComponent },
-  { path: RouteName.PRODUCT, component: ProductComponent },
-  { path: 'user/:id', component: UserDetailComponent }
+  { path: "user/:id", component: UserDetailComponent }
 ];
 
 @NgModule({
@@ -35,7 +34,6 @@ const appRoutes: Routes = [
     AppComponent,
     TodoComponent,
     UserComponent,
-    ProductComponent,
     SearchComponent,
     HeaderComponent,
     HomeComponent,
@@ -56,6 +54,4 @@ const appRoutes: Routes = [
   providers: [UserService],
   bootstrap: [AppComponent]
 })
-
-
-export class AppModule { }
+export class AppModule {}

@@ -1,34 +1,18 @@
 {
   "Users": [
     {
-      "name": "zzzzzzzzzzzzzzzz",
-      "createdAt": "2019-11-02T02:07:13.591Z",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/Shriiiiimp/128.jpg",
       "id": "1",
-      "sex": "male",
-      "tel": "09093746252",
-      "Products": [
+      "sex": "Female updated",
+      "name": "mmnie9432 updated",
+      "tel": "993840 updated",
+      "email": "dada3@dsa.com",
+      "avatar": "iuwuw updated",
+      "createdAt": "2019-11-07T19:16:28.285Z",
+      "addressList": [
         {
-          "id": "1",
-          "productname": "p 1",
-          "categoryid": "1"
-        },
-        {
-          "id": "10",
-          "productname": "p 10",
-          "categoryid": "1"
-        },
-        {
-          "id": "14",
-          "productname": "p 14",
-          "categoryid": "1"
-        }
-      ],
-      "Orders": [
-        {
-          "orderid": "1",
-          "orderdate": "2019-11-02T02:07:13.591Z",
-          "amount": 2000
+          "address": "z",
+          "city": "z",
+          "country": "z"
         }
       ]
     },
@@ -662,21 +646,21 @@
       "email": "address@adess.com",
       "avatar": "no avt",
       "createdAt": "2019-11-09T09:07:46.412Z",
-      "AddressList": [
+      "addressList": [
         {
-          "Address": "nguyen suy",
-          "City": "ho chi minh",
-          "Country": "viet nam"
+          "address": "nguyen suy",
+          "city": "ho chi minh",
+          "country": "viet nam"
         },
         {
-          "Address": "tan binh",
-          "City": "ha noi",
-          "Country": "thailand"
+          "address": "tan binh",
+          "city": "ha noi",
+          "country": "thailand"
         },
         {
-          "Address": "No. 23 ABC",
-          "City": "Bali ",
-          "Country": "indonesia"
+          "address": "No. 23 ABC",
+          "city": "Bali ",
+          "country": "indonesia"
         }
       ]
     }

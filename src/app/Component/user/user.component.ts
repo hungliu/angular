@@ -3,6 +3,8 @@ import { UserService } from "../../Services/UserService";
 import { IUser } from "../../Interface/IUser";
 import { Paging } from "../../Constant/Paging";
 import { NgxSpinnerService } from "ngx-spinner";
+import { User } from "src/app/Models/User";
+import { map, switchMap } from "rxjs/operators";
 
 @Component({
   selector: "app-user",
@@ -21,12 +23,15 @@ export class UserComponent implements OnInit {
   loading = true;
   showList = true;
 
+  userAdded: number = 0;
+
   constructor(
     private userService: UserService,
     private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
+    console.log(this.hideButton);
     this.loadData(this.pageIndex, this.pageSize);
   }
 
@@ -49,12 +54,12 @@ export class UserComponent implements OnInit {
 
   loadData(pageIndex: number, pageSize: number) {
     this.spinner.show();
-    this.userService.getUserList(pageIndex, pageSize).subscribe(
+    this.userService.getListUserWithAdap(pageIndex, pageSize).subscribe(
       data => {
-        //  console.log(data);
         this.userList = data;
-        this.pageTotal = 100;
+        this.pageTotal = 100; //for test
         this.loading = false;
+
         setTimeout(() => {
           this.spinner.hide();
         }, 500);
@@ -65,7 +70,6 @@ export class UserComponent implements OnInit {
     );
   }
 
-  userAdded: number = 0;
   getEventFromAddUser($event) {
     if ($event.success == 1) {
       this.userAdded = $event.item;
