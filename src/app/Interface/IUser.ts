@@ -1,16 +1,21 @@
-
 export interface IUser {
-    id: number;
-    createdAt: Date;
-    name: string;
-    avatar: string;
-    sex: string;
-    tel: string;
-    status: Status;
+  id: number;
+  createdAt: Date;
+  name: string;
+  avatar: string;
+  sex: string;
+  tel: string;
+  //addressList: Address[];
 }
 
-enum Status {
-    Pending = 1,
-    Aprroved = 2,
-    Deleted = 3
+export interface Address {
+  adress: string;
+  city: string;
+  country: string;
 }
+
+// enum Status {
+//   Pending = 1,
+//   Aprroved = 2,
+//   Deleted = 3
+// }

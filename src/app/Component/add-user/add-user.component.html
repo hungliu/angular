@@ -54,18 +54,18 @@
       </span>
     </div>
 
-    <div class="form-row divSectionAddress" formArrayName="AddressList"
-      *ngFor="let item of AddressList.controls; let i = index">
+    <div class="form-row divSectionAddress" formArrayName="addressList"
+      *ngFor="let item of addressList.controls; let i = index">
       <label>Address {{i+1}}</label>
       <div class="row addressItem" [formGroupName]="i">
         <div class="col-xs-3">
-          <input type="tex" class="form-control" formControlName="Address" placeholder="Your Address">
+          <input type="tex" class="form-control" formControlName="address" placeholder="Your Address">
         </div>
         <div class="col-xs-3">
-          <input type="tex" class="form-control" formControlName="City" placeholder="Your City">
+          <input type="tex" class="form-control" formControlName="city" placeholder="Your City">
         </div>
         <div class="col-xs-3">
-          <input type="tex" class="form-control" formControlName="Country" placeholder="Your Country">
+          <input type="tex" class="form-control" formControlName="country" placeholder="Your Country">
         </div>
         <div class="col-xs-3" style="padding-top: 10px;">
           <a href="javascript:void(0)" (click)='addMoreAddress()'>
@@ -80,11 +80,9 @@
     </div>
 
     <div class="form-group row" style="text-align: center;">
-
-      <button class="btn btn-primary" type="submit">Submit</button>
-
+      <button class="btn btn-primary" type="submit" *ngIf="!isUpdateMode">Add</button>
+      <button class="btn btn-primary" type="submit" *ngIf="isUpdateMode">Update</button>
       <button class="btn btn-danger  btnSecond" type="reset" (click)='onResetForm()'>Cancel</button>
-
     </div>
 
   </form>

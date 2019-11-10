@@ -1,23 +1,50 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Injectable } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { FnParam } from "@angular/compiler/src/output/output_ast";
+import { User } from "../../Models/User";
+import { UserService } from "../../Services/UserService";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-user-detail",
   templateUrl: "./user-detail.component.html",
   styleUrls: []
 })
+@Injectable()
 export class UserDetailComponent implements OnInit {
-  userId: number = 0;
+  userId: number = 2000;
+  userDetail: User;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService
+  ) {}
+
+  ngOnInit() {
     this.route.params.subscribe(params => {
       if (params.id != null) {
-        console.log("VO DAY:" + params.id);
-        this.userId = params.id;
+        this.userService
+          .getUserById(params.id)
+          .pipe(
+            map((data: User[]) => {
+              if (data.length > 0) return data[0];
+              else
+                return new User(
+                  -1,
+                  new Date(),
+                  "no data",
+                  "no data",
+                  "no data",
+                  "no data",
+                  "no data",
+                  []
+                );
+            })
+          )
+          .subscribe(user => {
+            this.userId = 9999;
+            this.userDetail = user;
+          });
       }
     });
   }
-
-  ngOnInit() {}
 }
