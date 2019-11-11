@@ -5,7 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from "./app.component";
 import { TodoComponent } from "./Component/todo/todo.component";
 import { UserComponent } from "./Component/user/user.component";
@@ -20,6 +20,7 @@ import { UserService } from "./Services/UserService";
 import { RouteName } from "./Constant/RouteName";
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { UserlistComponent } from './Component/userlist/userlist.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     HomeComponent,
     UserDetailComponent,
-    AddUserComponent
+    AddUserComponent,
+    UserlistComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
@@ -49,9 +51,10 @@ const appRoutes: Routes = [
     NgxSpinnerModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

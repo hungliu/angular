@@ -7,7 +7,7 @@ import {
   Input,
   SimpleChanges
 } from "@angular/core";
-
+import { NgxSpinnerService } from "ngx-spinner";
 import {
   ReactiveFormsModule,
   FormGroup,
@@ -43,19 +43,10 @@ export class AddUserComponent implements OnInit {
   isUpdateMode: boolean = false;
   // check submit form
   submitted: Boolean = false;
-  //data bind to select box
+  // data bind to select box
   SexArr: string[] = ["Male", "Female", "Other"];
-  // user: User = new User(
-  //   Common.setRadomNumber(),
-  //   new Date(),
-  //   "",
-  //   "",
-  //   "",
-  //   "",
-  //   "",
-  //   []
-  // );
-
+  //
+  userId: number;
   // declare controls
   myform: FormGroup;
   name: FormControl;
@@ -68,14 +59,16 @@ export class AddUserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: Router,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService
+  ) { }
 
   //  run whenever it detects changes to input properties
   ngOnChanges(changes: SimpleChanges) {
     if (changes["userDetail"]) {
       if (this.userDetail != undefined || this.userDetail != null) {
         this.isUpdateMode = true;
+        this.userId = this.userDetail.id;
         this.myform.patchValue({
           name: this.userDetail.name,
           tel: this.userDetail.tel,
@@ -162,10 +155,11 @@ export class AddUserComponent implements OnInit {
 
   //submit form function
   onSubmit() {
+    this.spinner.show();
     this.submitted = true;
     if (this.myform.valid) {
-      let user = {
-        id: Common.setRadomNumber(),
+      const user = {
+        id: !this.isUpdateMode ? Common.setRadomNumber() : this.userId,
         sex: this.sex.value,
         name: this.name.value,
         tel: this.tel.value,
@@ -183,19 +177,24 @@ export class AddUserComponent implements OnInit {
             success: 1,
             item: user
           });
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
         });
       } else {
         // for edit user
         this.userService.updateUser(user).subscribe(data => {
           this.myform.reset();
-          this.addUserFinishEvent.emit({
-            success: 1,
-            item: user
-          });
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 500);
+          this.route.navigate(['']);
+        }, err => {
+          console.log(err);
         });
       }
     } else {
-      console.log("invalidation");
+      console.log('invalidation');
     }
   }
   // reset form function
@@ -208,11 +207,11 @@ export class AddUserComponent implements OnInit {
       (control.invalid && control.dirty) ||
       (this.submitted && control.invalid)
     ) {
-      return "has-error";
+      return 'has-error';
     } else if (control.valid && control.dirty) {
-      return "has-success";
+      return 'has-success';
     } else {
-      return "";
+      return '';
     }
   }
 }
