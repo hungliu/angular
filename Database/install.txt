@@ -1,5 +1,5 @@
 npm install -g json-server
 Create a db.json file with some data
-json-server --watch db.json
+json-server --watch database.json
 ...........................
 following: https://www.npmjs.com/package/json-server

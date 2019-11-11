@@ -17,38 +17,6 @@
   </div>
 
   <ng-template #loadDone>
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Sex</th>
-          <th scope="col">Tel</th>
-          <!-- <th scope="col">Avatar</th> -->
-          <th scope="col">createdAt</th>
-          <th scope="col">Detail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor='let user of userList'>
-          <td>{{user.id}}</td>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.sex}}</td>
-          <td>{{user.tel}}</td>
-          <!-- <td><img src="{{user.avatar}}" style="width: 20px; height: 20px;"/></td> -->
-          <td>{{user.createdAt | date: 'dd/MM/yyyy'}}</td>
-          <td><a [routerLink]="['/user/',user.id]" routerLinkActive="router-link-active">Edit</a></td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="text-align: center;">
-      <ngb-pagination class="d-flex justify-content-center" [(page)]="pageIndex" [pageSize]="pageSize"
-        [collectionSize]="pageTotal" (pageChange)="Navigate($event)">
-      </ngb-pagination>
-    </div>
-    <p>{{userAdded | json }}</p>
+    <app-userlist [readyLoad]='1' [isReload]='isReload'></app-userlist>
   </ng-template>
 </div>
-

@@ -155,9 +155,11 @@ export class AddUserComponent implements OnInit {
 
   //submit form function
   onSubmit() {
-    this.spinner.show();
+
     this.submitted = true;
     if (this.myform.valid) {
+      this.spinner.show();
+
       const user = {
         id: !this.isUpdateMode ? Common.setRadomNumber() : this.userId,
         sex: this.sex.value,
