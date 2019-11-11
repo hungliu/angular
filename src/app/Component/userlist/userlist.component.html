@@ -1,4 +1,5 @@
 <h4>User List</h4>
+
 <div *ngIf="readyLoad==1">
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -21,7 +22,7 @@
           'rowOdd': i%2!=0
           }">{{user.name | uppercase}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.sex}}</td>
+        <td>{{user.sex | sexPipe:'No Gender Found' }}</td>
         <td>{{user.tel}}</td>
         <td>{{user.createdAt | date: 'dd/MM/yyyy'}}</td>
         <td><a [routerLink]="['/user/',user.id]" routerLinkActive="router-link-active">Edit</a></td>

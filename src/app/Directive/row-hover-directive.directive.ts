@@ -23,6 +23,7 @@ export class RowHoverDirectiveDirective {
       this.render.setElementStyle(rowEven, "color", "blue");
       this.render.setElementStyle(rowEven, "font-weight", "Bold");
     }
+
     let rowOdd = this.el.nativeElement.querySelector(".rowOdd");
     if (rowOdd != null) {
       this.render.setElementStyle(rowOdd, "color", "#e64727");
@@ -37,6 +38,7 @@ export class RowHoverDirectiveDirective {
       this.render.setElementStyle(rowEven, "color", "black");
       this.render.setElementStyle(rowEven, "font-weight", "normal");
     }
+
     let rowOdd = this.el.nativeElement.querySelector(".rowOdd");
     if (rowOdd != null) {
       this.render.setElementStyle(rowOdd, "color", "black");
