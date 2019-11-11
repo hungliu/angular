@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Input } from "@angular/core";
+import { Component, OnInit, Injectable, Input, SimpleChanges } from "@angular/core";
 import { UserService } from "../../Services/UserService";
 import { IUser } from "../../Interface/IUser";
 import { Paging } from "../../Constant/Paging";
@@ -17,6 +17,7 @@ export class UserlistComponent implements OnInit {
   userList: IUser[];
 
   @Input() readyLoad: number;
+  @Input() isReload: number;
   @Input() userListFromParent: IUser[];
 
   constructor(
@@ -29,12 +30,12 @@ export class UserlistComponent implements OnInit {
     }
   }
 
-  ngOnChanges() {
-    this.spinner.show();
-    this.userList = this.userListFromParent;
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["isReload"] && this.isReload != 0) {
+      console.log('onChanged - reloadpage: ' + this.isReload);
+      this.pageIndex = 1;
+      this.loadData(this.pageIndex, this.pageSize);
+    }
   }
 
   Navigate($event) {

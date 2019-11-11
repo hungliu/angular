@@ -21,6 +21,7 @@ import { RouteName } from "./Constant/RouteName";
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { UserlistComponent } from './Component/userlist/userlist.component';
+import { RowHoverDirectiveDirective } from './directive/row-hover-directive.directive';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     HomeComponent,
     UserDetailComponent,
     AddUserComponent,
-    UserlistComponent
+    UserlistComponent,
+    RowHoverDirectiveDirective,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // entryComponents: [AlertContentComponent]
 })
 export class AppModule { }
