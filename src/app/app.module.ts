@@ -22,6 +22,7 @@ import { RouteName } from "./Constant/RouteName";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { UserlistComponent } from './Component/userlist/userlist.component';
 import { RowHoverDirectiveDirective } from './directive/row-hover-directive.directive';
+import { SexPipePipe } from './Pipes/sex-pipe.pipe';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     AddUserComponent,
     UserlistComponent,
     RowHoverDirectiveDirective,
+    SexPipePipe,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {

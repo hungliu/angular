@@ -1,65 +1,62 @@
 import { Component, OnInit } from "@angular/core";
-import { debounceTime } from "rxjs/operators";
-import { FormsModule, FormGroup, FormControl } from "@angular/forms";
-import { UserService } from "../../Services/UserService";
-import { User } from "../../Models/User";
-import { NgxSpinnerService } from "ngx-spinner";
-import { Paging } from "../../Constant/Paging";
-
+import { Common } from "../../Constant/Common";
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
   styleUrls: []
 })
 export class SearchComponent implements OnInit {
-  constructor(
-    private userService: UserService,
-    private spinner: NgxSpinnerService
-  ) {}
+  constructor() {}
 
-  userList: User[];
   showList: boolean = false;
   searchValue: string;
-  pageIndex: number = Paging.PageIndex;
-  pageSize: number = Paging.PageSize;
-  pageTotal: number = 100;
-  // properties for userlist component
   readyLoad: number = 0;
 
   ngOnInit() {}
-  //seachTypes: any[] = [{ id: 1, label: "Product" }, { id: 2, label: "User" }];
 
+  searchText: string;
   onSubmit(form) {
-    this.loadData(form.value.txtSearch, this.pageIndex, this.pageSize);
+    if (form.value.txtSearch.length > 0) {
+      this.searchText = form.value.txtSearch;
+      this.showList = true;
+      this.readyLoad = Common.setRadomNumber();
+    } else {
+      this.showList = false;
+    }
   }
 
   onReset(form) {
     form.reset();
   }
 
-  Navigate($event) {
-    this.loadData(this.searchValue, $event, this.pageSize);
+  ResultFinish($event) {
+    console.log("ccc:" + $event);
+    if ($event == 1) this.showList = true;
+    else this.showList = false;
   }
+  // Navigate($event) {
+  //   this.loadData(this.searchValue, $event, this.pageSize);
+  // }
 
-  loadData(searchText: string, pageIndex: number, pageSize: number) {
-    this.spinner.show();
+  // loadData(searchText: string, pageIndex: number, pageSize: number) {
+  //   this.spinner.show();
 
-    this.searchValue = searchText;
+  //   this.searchValue = searchText;
 
-    this.userService
-      .searchUser(searchText, pageIndex, pageSize)
-      .subscribe(data => {
-        this.readyLoad = 1;
+  //   this.userService
+  //     .searchUser(searchText, pageIndex, pageSize)
+  //     .subscribe(data => {
+  //       this.readyLoad = 1;
 
-        setTimeout(() => {
-          this.spinner.hide();
-        }, 500);
+  //       setTimeout(() => {
+  //         this.spinner.hide();
+  //       }, 500);
 
-        this.userList = data;
+  //       this.userList = data;
 
-        if (this.userList.length > 0) {
-          this.showList = true;
-        }
-      });
-  }
+  //       if (this.userList.length > 0) {
+  //         this.showList = true;
+  //       }
+  //     });
+  // }
 }
