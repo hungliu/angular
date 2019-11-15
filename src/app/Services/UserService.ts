@@ -1,17 +1,13 @@
-import { Injectable } from "@angular/core";
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpResponse,
-  HttpHeaders
-} from "@angular/common/http";
-import { ApiUrl } from "../Constant/ApiUrl";
-import { IUser } from "../Interface/IUser";
-import { Observable, of } from "rxjs";
-import { delay, map, tap, catchError } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpResponse, HttpHeaders } from '@angular/common/http';
+import { ApiUrl } from '../Constant/ApiUrl';
+import { IUser } from '../Interface/IUser';
+import { Observable, of } from 'rxjs';
+import { delay, map, tap, catchError } from 'rxjs/operators';
+import { User } from '../Models/User';
 
-import { User } from "../Models/User";
-import { filter } from "minimatch";
+const delayTime = 500;
+
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) { }
@@ -27,7 +23,10 @@ export class UserService {
       .get<User[]>(
         `${ApiUrl.getUserData}?_limit=${pageSize}&_page=${pageIndex}&_sort=createdAt&_order=desc`
       )
-      .pipe(map(data => data.map(User.adap)));
+      .pipe(
+        delay(delayTime),
+        map(data => data.map(User.adap))
+      );
   }
 
   getUserById(id: number): Observable<User[]> {
