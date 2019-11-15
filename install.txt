@@ -20,3 +20,5 @@ https://scotch.io/tutorials/3-ways-to-pass-async-data-to-angular-2-child-compone
 edit in 16_2.
 
 edit in 16_3
+
+16_4
