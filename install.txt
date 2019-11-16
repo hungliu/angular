@@ -10,23 +10,12 @@
 
 3) install loader:
 https://stackoverflow.com/questions/52356324/display-spinner-till-api-response-in-angular-6/52356687
-
-
-https://www.youtube.com/watch?v=aHD7PLXKTsQ
-
-https://scotch.io/tutorials/3-ways-to-pass-async-data-to-angular-2-child-components
-
-
-edit in 16_2.
-
-edit in 16_3
-
-16_4
-16_4_1
-16_4_2
-
-checout tu nhanh 16 - bat dau edit tren nhanh 1
-
-D - branch1
-
-
+.......
+.......
+.......
+-------
+-------
+-------
+#######
+#######
+#######
