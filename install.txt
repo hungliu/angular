@@ -27,4 +27,6 @@ edit in 16_3
 
 checout tu nhanh 16 - bat dau edit tren nhanh 1
 
-work tu nhanh 16
+D - branch1
+
+
