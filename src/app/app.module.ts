@@ -24,12 +24,20 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { UserlistComponent } from './Component/userlist/userlist.component';
 import { RowHoverDirectiveDirective } from './directive/row-hover-directive.directive';
 import { SexPipePipe } from './Pipes/sex-pipe.pipe';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { UserListV2Component } from './Component/user-list-v2/user-list-v2.component';
+
+import { MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatTabsModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PopupModule } from '@progress/kendo-angular-popup';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: RouteName.KENDOGRID_USER, pathMatch: 'full' },
   { path: RouteName.HOME, component: HomeComponent },
   { path: RouteName.SEARCH, component: SearchComponent },
   { path: RouteName.USER, component: UserComponent },
+  { path: RouteName.KENDOGRID_USER, component: UserListV2Component },
   { path: 'user/:id', component: UserDetailComponent }
 ];
 
@@ -46,6 +54,7 @@ const appRoutes: Routes = [
     UserlistComponent,
     RowHoverDirectiveDirective,
     SexPipePipe,
+    UserListV2Component,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
@@ -57,8 +66,18 @@ const appRoutes: Routes = [
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    InputsModule,
+    GridModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTabsModule,
+    PopupModule
   ],
+  exports: [MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatTabsModule],
   providers: [UserService, LoadingServie],
   bootstrap: [AppComponent],
   // entryComponents: [AlertContentComponent]

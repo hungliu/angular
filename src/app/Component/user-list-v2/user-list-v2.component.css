@@ -1,0 +1,15 @@
+.gold .codeColumn {
+  background-color: #FFBA80;
+}
+
+.green {
+  background-color: #B2F699;
+}
+
+.highlighted-row {
+  background-color: #eeffee;
+}
+
+.highlighted-row.k-alt {
+  background-color: #ccffcc;
+}

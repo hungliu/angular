@@ -1,7 +1,7 @@
 export class RouteName {
-    static HOME: string = "home";
-    static SEARCH: string = "search";
-    static PRODUCT: string = "product";
-    static USER: string = "users";
-
+    static HOME = 'home';
+    static SEARCH = 'search';
+    static PRODUCT = 'product';
+    static USER = 'users';
+    static KENDOGRID_USER = 'userv2';
 }
