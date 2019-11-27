@@ -7,14 +7,15 @@ import { RouteName } from "../../Constant/RouteName";
   styleUrls: []
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   routes = {
     home: RouteName.HOME,
     search: RouteName.SEARCH,
     user: RouteName.USER,
-    product: RouteName.PRODUCT
+    product: RouteName.PRODUCT,
+    userV2: RouteName.KENDOGRID_USER
   };
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

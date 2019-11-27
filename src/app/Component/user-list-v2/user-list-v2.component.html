@@ -1,0 +1,139 @@
+<mat-tab-group (selectedTabChange)="tabChanged($event)">
+  <mat-tab label="User List">
+    <p></p>
+    <div style="padding-bottom: 10px;">
+      <div style="float:left; padding-right: 10px;">
+        <button mat-raised-button color="primary" (click)='reload()'>Reload</button>
+      </div>
+      <div style="float:left;">
+        <button mat-raised-button color="primary" (click)='addnew()'>Add New</button>
+      </div>
+    </div>
+    <div style="margin-top:40px; margin-bottom:50px">
+      <kendo-grid #grid (cellClick)="cellClickHandler($event)" (cancel)="cancelEdit($event)" [height]='400'
+        (remove)="removeItem($event)" (edit)="editItem($event)" (sortChange)='sortChange($event)'
+        (pageChange)="pageChange($event)" (save)="saveRow($event)">
+
+        <!---ID RANDOM-->
+        <kendo-grid-column field="id" title="ID" width="30" [minResizableWidth]="80">
+          <ng-template kendoGridEditTemplate let-formGroup="formGroup">
+            <mat-form-field style="width: 100px;">
+              <input matInput #id readonly [formControl]="formGroup.get('id')">
+            </mat-form-field>
+          </ng-template>
+        </kendo-grid-column>
+
+        <!---NAME-->
+        <kendo-grid-column editor="text" field="name" title="Name" width="50" [minResizableWidth]="80">
+          <ng-template kendoGridEditTemplate let-formGroup="formGroup" let-isNew="isNew" let-column="column">
+            <mat-form-field style="width: 100px;">
+              <input matInput #name [formControl]="formGroup.get('name')" placeholder="Input Name">
+              <mat-error *ngIf="formGroup.get('name').invalid && !(isNew && formGroup.get('name').untouched)">
+                Name is required
+              </mat-error>
+            </mat-form-field>
+          </ng-template>
+        </kendo-grid-column>
+
+        <!---TEL-->
+        <kendo-grid-column field="tel" title="Telephonesss" width="50" [minResizableWidth]="80">
+          <ng-template kendoGridEditTemplate let-formGroup="formGroup">
+            <mat-form-field style="width: 100px;">
+              <input matInput #tel [formControl]="formGroup.get('tel')" placeholder="Input Telephone">
+              <mat-error *ngIf="formGroup.get('tel').invalid && !(formGroup.get('tel').untouched)">
+                Tel is required
+              </mat-error>
+            </mat-form-field>
+          </ng-template>
+        </kendo-grid-column>
+
+        <!---EMAIL-->
+        <kendo-grid-column field="email" title="Email" width="50" [minResizableWidth]="80">
+          <ng-template kendoGridEditTemplate let-formGroup="formGroup">
+            <mat-form-field style="width: 100px;">
+              <mat-label>Input Email</mat-label>
+              <input matInput #email [formControl]="formGroup.get('email')">
+              <mat-error *ngIf="formGroup.get('email').invalid && !(formGroup.get('email').untouched)">
+                Email is required
+              </mat-error>
+            </mat-form-field>
+          </ng-template>
+        </kendo-grid-column>
+
+        <!---GENDER-->
+        <kendo-grid-column field="sex" title="Gender" width="60" [minResizableWidth]="80">
+          <ng-template kendoGridEditTemplate let-formGroup="formGroup">
+            <mat-form-field style="width: 100px;">
+              <mat-label>Select Gender</mat-label>
+              <mat-select [formControl]="formGroup.get('sex')"
+                (selectionChange)="selectionChange($event,formGroup.get('email'))">
+                <mat-option value='Male'>male</mat-option>
+                <mat-option value='Female'>female</mat-option>
+                <mat-option value='Other'>other</mat-option>
+              </mat-select>
+              <mat-error *ngIf="formGroup.get('sex').invalid && !(formGroup.get('sex').untouched)">
+                Gender is required
+              </mat-error>
+            </mat-form-field>
+          </ng-template>
+        </kendo-grid-column>
+
+        <!--Address Column-->
+        <kendo-grid-column title="Address List" width="150" field='addressList'>
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <div *ngFor="let item of dataItem.addressList; let i= index">
+              <span>{{i + 1}}. {{item.address}}, {{item.city}}, {{item.country}}</span>
+            </div>
+          </ng-template>
+          <ng-template kendoGridEditTemplate let-dataItem="addressList" let-formGroup="formGroup">
+            <div *ngIf="addressList.length>0">
+              <div *ngFor="let item of addressList.controls; let i = index">
+
+                <div style="float: left;padding-bottom: 20px;">
+                  <div style="padding-bottom:3px">
+                    Adress: <input type="text" #address [(ngModel)]="item.get('address').value"
+                      style="margin-left: 20px;">
+                  </div>
+                  <div style="padding-bottom:3px">
+                    City: <input type="text" #city [(ngModel)]="item.get('city').value" style="margin-left: 40px;">
+                  </div>
+                  <div>
+                    Country: <input type="text" #country [(ngModel)]="item.get('country').value"
+                      style="margin-left: 15px;">
+                  </div>
+                </div>
+                <div style="float: left;padding-top:30px;padding-left: 30px;">
+                  <a href="javascript:void(0)" (click)='addMoreAddress()' style="color: blue;">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </a>
+                  /
+                  <a href="javascript:void(0)" (click)='removeAddress(i)' style="color: red;">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Action" width="60">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <button kendoGridEditCommand [primary]="true" style="margin-right:5px;">Edit</button>
+            <button kendoGridRemoveCommand>Remove</button>
+            <button kendoGridSaveCommand [primary]="true"
+              style="margin-right:5px;">{{ isAddNewMode ? 'Add' : 'Update' }}</button>
+            <button kendoGridCancelCommand>Cancel</button>
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </mat-tab>
+  <mat-tab label="Add User"> </mat-tab>
+  <mat-tab label="Search">
+
+  </mat-tab>
+  <mat-tab label="User List Old GUI">
+    <div *ngIf="secondTabReadyLoad">
+      <app-userlist [readyLoad]='1'></app-userlist>
+    </div>
+  </mat-tab>
+</mat-tab-group>

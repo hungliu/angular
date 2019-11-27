@@ -1,6 +1,5 @@
 {
-  "Users": [
-    {
+  "Users": [{
       "id": "1",
       "sex": "Female updated",
       "name": "mmnie9432 updated",
@@ -8,13 +7,11 @@
       "email": "dada3@dsa.com",
       "avatar": "iuwuw updated",
       "createdAt": "2019-11-07T19:16:28.285Z",
-      "addressList": [
-        {
-          "address": "z",
-          "city": "z",
-          "country": "z"
-        }
-      ]
+      "addressList": [{
+        "address": "z",
+        "city": "z",
+        "country": "z"
+      }]
     },
     {
       "id": "2",
@@ -503,8 +500,7 @@
       "email": "222333@dsa.com333",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/felipeapiress/128.jpg",
       "createdAt": "2019-11-11T04:26:26.499Z",
-      "addressList": [
-        {
+      "addressList": [{
           "address": "12",
           "city": "12",
           "country": "12"
@@ -666,8 +662,7 @@
       "email": "address@adess.com",
       "avatar": "no avt",
       "createdAt": "2019-11-09T09:07:46.412Z",
-      "addressList": [
-        {
+      "addressList": [{
           "address": "nguyen suy",
           "city": "ho chi minh",
           "country": "viet nam"
@@ -692,8 +687,7 @@
       "email": "QQQQmonday222@",
       "avatar": "2222a",
       "createdAt": "2019-11-11T05:56:53.717Z",
-      "addressList": [
-        {
+      "addressList": [{
           "address": "1a",
           "city": "1a",
           "country": "1a"
@@ -713,86 +707,77 @@
     {
       "id": 758,
       "sex": "Female",
-      "name": "hic hic hic",
-      "tel": "0909999",
-      "email": "hic@.com",
-      "avatar": "qqqqqq",
+      "name": "Hung Luu",
+      "tel": "0909349357",
+      "email": "h@gmail.com",
+      "avatar": "",
       "createdAt": "2019-11-11T19:55:56.222Z",
-      "addressList": [
-        {
-          "address": "1",
-          "city": "1",
-          "country": "1"
+      "addressList": [{
+          "address": "nguyen suy",
+          "city": "Hcm",
+          "country": "Vn"
         },
         {
-          "address": "2",
-          "city": "2",
-          "country": "2"
+          "address": "Le Loi",
+          "city": "Ha Noi",
+          "country": "Vn"
         },
         {
-          "address": "q",
-          "city": "q",
-          "country": "q"
-        },
-        {
-          "address": "w",
-          "city": "w",
-          "country": "w"
-        },
-        {
-          "address": "e",
-          "city": "e",
-          "country": "e"
+          "address": "Go Dau",
+          "city": "Da Lat",
+          "country": "Indonesia"
         }
       ]
     }
   ],
-  "Category": [
-    {
-      "id": "1",
-      "CategoryName": "CategoryName 1",
-      "CreatedDate": 1572951649
-    },
-    {
-      "id": "2",
-      "CategoryName": "CategoryName 2",
-      "CreatedDate": 1572951589
-    },
-    {
-      "id": "3",
-      "CategoryName": "CategoryName 3",
-      "CreatedDate": 1572951529
-    },
-    {
-      "id": "4",
-      "CategoryName": "CategoryName 4",
-      "CreatedDate": 1572951469
-    },
-    {
-      "id": "5",
-      "CategoryName": "CategoryName 5",
-      "CreatedDate": 1572951409
-    },
-    {
-      "id": "6",
-      "CategoryName": "CategoryName 6",
-      "CreatedDate": 1572951349
-    },
-    {
-      "id": "7",
-      "CategoryName": "CategoryName 7",
-      "CreatedDate": 1572951289
-    },
-    {
-      "id": "8",
-      "CategoryName": "CategoryName 8",
-      "CreatedDate": 1572951229
-    },
-    {
-      "id": "9",
-      "CategoryName": "CategoryName 9",
-      "CreatedDate": 1572951169
-    }
-  ],
+  "Category": {
+    "TotalItems": 100,
+    "List": [{
+        "id": "1",
+        "CategoryName": "CategoryName 1",
+        "CreatedDate": 1572951649
+      },
+      {
+        "id": "2",
+        "CategoryName": "CategoryName 2",
+        "CreatedDate": 1572951589
+      },
+      {
+        "id": "3",
+        "CategoryName": "CategoryName 3",
+        "CreatedDate": 1572951529
+      },
+      {
+        "id": "4",
+        "CategoryName": "CategoryName 4",
+        "CreatedDate": 1572951469
+      },
+      {
+        "id": "5",
+        "CategoryName": "CategoryName 5",
+        "CreatedDate": 1572951409
+      },
+      {
+        "id": "6",
+        "CategoryName": "CategoryName 6",
+        "CreatedDate": 1572951349
+      },
+      {
+        "id": "7",
+        "CategoryName": "CategoryName 7",
+        "CreatedDate": 1572951289
+      },
+      {
+        "id": "8",
+        "CategoryName": "CategoryName 8",
+        "CreatedDate": 1572951229
+      },
+      {
+        "id": "9",
+        "CategoryName": "CategoryName 9",
+        "CreatedDate": 1572951169
+      }
+    ]
+  },
   "Products": []
 }

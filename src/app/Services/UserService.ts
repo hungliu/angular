@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { delay, map, tap, catchError } from 'rxjs/operators';
 import { User } from '../Models/User';
 
-const delayTime = 500;
+const delayTime = 200;
 
 @Injectable()
 export class UserService {

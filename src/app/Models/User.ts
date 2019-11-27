@@ -7,8 +7,8 @@ export class User {
     public avatar: string,
     public sex: string,
     public tel: string,
-    public addressList: Address[]
-  ) {}
+    public addressList: Address[] = []
+  ) { }
 
   static adap(item: any): User {
     return new User(

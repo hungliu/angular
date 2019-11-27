@@ -6,8 +6,8 @@ import {
   EventEmitter,
   Input,
   SimpleChanges
-} from "@angular/core";
-import { NgxSpinnerService } from "ngx-spinner";
+} from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import {
   ReactiveFormsModule,
   FormGroup,
@@ -15,23 +15,24 @@ import {
   Validators,
   FormBuilder,
   FormArray
-} from "@angular/forms";
+} from '@angular/forms';
 
-import { User, Address } from "../../Models/User";
-import { UserService } from "../../Services/UserService";
-import { Common } from "../../Constant/Common";
-import { Router } from "@angular/router";
-import { NgbSlide } from "@ng-bootstrap/ng-bootstrap";
+import { User, Address } from '../../Models/User';
+import { UserService } from '../../Services/UserService';
+import { Common } from '../../Constant/Common';
+import { Router } from '@angular/router';
+import { NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import {
   debounceTime,
   switchMap,
   filter,
   distinctUntilChanged
-} from "rxjs/operators";
+} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: "app-add-user",
-  templateUrl: "./add-user.component.html",
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
   styleUrls: []
 })
 @Injectable()
@@ -40,11 +41,11 @@ export class AddUserComponent implements OnInit {
   @Output() addUserFinishEvent = new EventEmitter<object>();
   @Input() userDetail: User;
   //
-  isUpdateMode: boolean = false;
+  isUpdateMode = false;
   // check submit form
   submitted: Boolean = false;
   // data bind to select box
-  SexArr: string[] = ["Male", "Female", "Other"];
+  SexArr: string[] = ['Male', 'Female', 'Other'];
   //
   userId: number;
   // declare controls
@@ -65,7 +66,7 @@ export class AddUserComponent implements OnInit {
 
   //  run whenever it detects changes to input properties
   ngOnChanges(changes: SimpleChanges) {
-    if (changes["userDetail"]) {
+    if (changes.userDetail) {
       if (this.userDetail != undefined || this.userDetail != null) {
         this.isUpdateMode = true;
         this.userId = this.userDetail.id;
@@ -94,16 +95,16 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
     // init control
-    this.name = new FormControl("", [
+    this.name = new FormControl('', [
       Validators.required,
       Validators.minLength(8)
     ]);
-    this.tel = new FormControl("", Validators.required);
-    this.sex = new FormControl("", Validators.required);
-    this.avatar = new FormControl("", Validators.required);
-    this.email = new FormControl("", [
+    this.tel = new FormControl('', Validators.required);
+    this.sex = new FormControl('', Validators.required);
+    this.avatar = new FormControl('', Validators.required);
+    this.email = new FormControl('', [
       Validators.required,
-      Validators.pattern("[^ @]*@[^ @]*")
+      Validators.pattern('[^ @]*@[^ @]*')
     ]);
     this.addressList = this.formBuilder.array([this.initAddressGroup(null)]);
 
@@ -116,28 +117,56 @@ export class AddUserComponent implements OnInit {
       email: this.email,
       addressList: this.addressList
     });
+
+
+    this.myform.get('name').valueChanges.pipe(
+      debounceTime(3000),
+      switchMap(value => {
+        console.log(value);
+        return this.userService.searchUser(value, 1, 100);
+      })
+    ).subscribe(result => {
+      console.log('Search done');
+      console.log(result);
+    });
+
+
+    this.userService.getUserList(1, 10).toPromise()
+      .then(list => {
+        console.log(list);
+        return this.userService.getUserById(list[0].id).toPromise();
+      })
+      .then(userItem => {
+        console.log(userItem);
+        return this.userService.searchUser(userItem[0].name, 1, 10).toPromise();
+      })
+      .then(searchResut => {
+        console.log('search result');
+        console.log(searchResut);
+      });
+
   }
 
   initAddressGroup(addressItem: Address) {
     if (addressItem == null) {
       return this.formBuilder.group({
-        address: new FormControl(""),
-        city: new FormControl(""),
-        country: new FormControl("")
+        address: new FormControl(''),
+        city: new FormControl(''),
+        country: new FormControl('')
       });
     } else {
       return this.formBuilder.group({
         address: new FormControl(
-          addressItem == null ? "" : addressItem.address
+          addressItem == null ? '' : addressItem.address
         ),
-        city: new FormControl(addressItem == null ? "" : addressItem.city),
-        country: new FormControl(addressItem == null ? "" : addressItem.country)
+        city: new FormControl(addressItem == null ? '' : addressItem.city),
+        country: new FormControl(addressItem == null ? '' : addressItem.country)
       });
     }
   }
 
   get AddressListControl(): FormArray {
-    return this.myform.get("addressList") as FormArray;
+    return this.myform.get('addressList') as FormArray;
   }
 
   addMoreAddress() {
@@ -146,14 +175,14 @@ export class AddUserComponent implements OnInit {
 
   removeAddress(index: number) {
     if (this.addressList.length == 1) {
-      window.alert("least one");
+      window.alert('least one');
       return;
     }
-    console.log("remove at: " + index);
-    this.addressList.removeAt(index);
+    console.log('remove at: ' + index);
+    this.AddressListControl.removeAt(index);
   }
 
-  //submit form function
+  // submit form function
   onSubmit() {
 
     this.submitted = true;
@@ -168,7 +197,7 @@ export class AddUserComponent implements OnInit {
         email: this.email.value,
         avatar: this.avatar.value,
         createdAt: new Date(),
-        addressList: this.addressList.value //(this.myform.get("AddressList") as FormArray).value
+        addressList: this.addressList.value // (this.myform.get("AddressList") as FormArray).value
       };
 
       // for add new user
