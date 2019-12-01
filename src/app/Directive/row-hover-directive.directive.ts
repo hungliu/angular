@@ -4,47 +4,47 @@ import {
   Renderer,
   HostListener,
   HostBinding
-} from "@angular/core";
+} from '@angular/core';
 
 @Directive({
-  selector: "[RowHover]"
+  selector: '[RowHover]'
 })
 export class RowHoverDirectiveDirective {
-  constructor(private el: ElementRef, private render: Renderer) {}
+  constructor(private el: ElementRef, private render: Renderer) { }
 
-  defaultColor: string = "white";
-  highlightedColor: string = "#faeea7";
+  defaultColor = 'white';
+  highlightedColor = '#faeea7';
 
-  @HostBinding("style.backgroundColor") color: string = this.defaultColor;
+  @HostBinding('style.backgroundColor') color: string = this.defaultColor;
 
-  @HostListener("mouseover") onMouseOver() {
-    let rowEven = this.el.nativeElement.querySelector(".rowEven");
+  @HostListener('mouseover') onMouseOver() {
+    const rowEven = this.el.nativeElement.querySelector('.rowEven');
     if (rowEven != null) {
-      this.render.setElementStyle(rowEven, "color", "blue");
-      this.render.setElementStyle(rowEven, "font-weight", "Bold");
+      this.render.setElementStyle(rowEven, 'color', 'blue');
+      this.render.setElementStyle(rowEven, 'font-weight', 'Bold');
     }
 
-    let rowOdd = this.el.nativeElement.querySelector(".rowOdd");
+    const rowOdd = this.el.nativeElement.querySelector('.rowOdd');
     if (rowOdd != null) {
-      this.render.setElementStyle(rowOdd, "color", "#e64727");
-      this.render.setElementStyle(rowOdd, "font-style", "italic");
+      this.render.setElementStyle(rowOdd, 'color', '#e64727');
+      this.render.setElementStyle(rowOdd, 'font-style', 'italic');
     }
-    //set hai-lai color for each row
+    // set hai-lai color for each row
     this.color = this.highlightedColor;
   }
-  @HostListener("mouseout") onMouseOut() {
-    let rowEven = this.el.nativeElement.querySelector(".rowEven");
+  @HostListener('mouseout') onMouseOut() {
+    const rowEven = this.el.nativeElement.querySelector('.rowEven');
     if (rowEven != null) {
-      this.render.setElementStyle(rowEven, "color", "black");
-      this.render.setElementStyle(rowEven, "font-weight", "normal");
+      this.render.setElementStyle(rowEven, 'color', 'black');
+      this.render.setElementStyle(rowEven, 'font-weight', 'normal');
     }
 
-    let rowOdd = this.el.nativeElement.querySelector(".rowOdd");
+    const rowOdd = this.el.nativeElement.querySelector('.rowOdd');
     if (rowOdd != null) {
-      this.render.setElementStyle(rowOdd, "color", "black");
-      this.render.setElementStyle(rowOdd, "font-style", "normal");
+      this.render.setElementStyle(rowOdd, 'color', 'black');
+      this.render.setElementStyle(rowOdd, 'font-style', 'normal');
     }
-    //set hai-lai color for each row
+    // set hai-lai color for each row
     this.color = this.defaultColor;
   }
 }

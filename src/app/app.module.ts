@@ -15,6 +15,8 @@ import { SearchComponent } from './Component/search/search.component';
 import { HeaderComponent } from './Component/header/header.component';
 import { HomeComponent } from './Component/home/home.component';
 import { UserDetailComponent } from './Component/user-detail/user-detail.component';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+
 
 import { UserService } from './Services/UserService';
 import { LoadingServie } from './Services/LoadingService';
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     RowHoverDirectiveDirective,
     SexPipePipe,
     UserListV2Component,
+    PageNotFoundComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
