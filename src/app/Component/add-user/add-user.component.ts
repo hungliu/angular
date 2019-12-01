@@ -5,7 +5,8 @@ import {
   Output,
   EventEmitter,
   Input,
-  SimpleChanges
+  SimpleChanges,
+  OnChanges
 } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {
@@ -36,14 +37,14 @@ import { Observable } from 'rxjs';
   styleUrls: []
 })
 @Injectable()
-export class AddUserComponent implements OnInit {
+export class AddUserComponent implements OnInit, OnChanges {
   // send event to UserCpn
   @Output() addUserFinishEvent = new EventEmitter<object>();
   @Input() userDetail: User;
   //
   isUpdateMode = false;
   // check submit form
-  submitted: Boolean = false;
+  submitted = false;
   // data bind to select box
   SexArr: string[] = ['Male', 'Female', 'Other'];
   //
@@ -67,7 +68,7 @@ export class AddUserComponent implements OnInit {
   //  run whenever it detects changes to input properties
   ngOnChanges(changes: SimpleChanges) {
     if (changes.userDetail) {
-      if (this.userDetail != undefined || this.userDetail != null) {
+      if (this.userDetail !== undefined || this.userDetail !== null) {
         this.isUpdateMode = true;
         this.userId = this.userDetail.id;
         this.myform.patchValue({
@@ -174,7 +175,7 @@ export class AddUserComponent implements OnInit {
   }
 
   removeAddress(index: number) {
-    if (this.addressList.length == 1) {
+    if (this.addressList.length === 1) {
       window.alert('least one');
       return;
     }
@@ -201,7 +202,7 @@ export class AddUserComponent implements OnInit {
       };
 
       // for add new user
-      if (this.isUpdateMode == false) {
+      if (this.isUpdateMode === false) {
         this.userService.addUser(user).subscribe(data => {
           this.myform.reset();
           this.addUserFinishEvent.emit({
